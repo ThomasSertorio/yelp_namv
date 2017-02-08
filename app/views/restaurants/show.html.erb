@@ -1,0 +1,56 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @restaurant.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @restaurant.address %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @restaurant.category %>
+</p>
+
+<p>
+  <strong>Phone number:</strong>
+  <%= @restaurant.phone_number %>
+</p>
+
+<h2>Ajouter ici votre review</h2>
+
+<%= simple_form_for([@restaurant, @review]) do |f| %>
+  <%= f.input :content, input_html: {class:"my_input_class", id:'js-input'}, label_html:{class:"my_label_class"}, wrapper_html:{class:"my_wrapper_class"} %>
+  <%= f.input :rating %>
+  <%= f.submit %>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>Les reviews de <%= @restaurant.name %></h2>
+<ul>
+  <% @restaurant.reviews.each do |review|%>
+    <li><%= review.content %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Back', restaurants_path %>

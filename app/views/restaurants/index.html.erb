@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Restaurants</h1>
+
+<div class="container">
+  <div class="row">
+    <% @restaurants.each do |restaurant| %>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <%= link_to restaurant_path(restaurant), class:"card" do %>
+        <h2><%= restaurant.name %></h2>
+        <p class="card-tag"><%= restaurant.category %></p>
+        <p><%= restaurant.address %></p>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+
+
+<%= link_to 'New Restaurant', new_restaurant_path %>
